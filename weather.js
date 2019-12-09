@@ -1,6 +1,6 @@
 function weatherBalloon( cityID ) {
-    var key = '{yourkey}';
-    fetch('https://api.openweathermap.org/data/2.5/weather?id=588335&appid=da63afd548b778fa72b1109e465edd7d')  
+    var key = 'da63afd548b778fa72b1109e465edd7d';
+    fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID+ '&appid=' + key)    
     .then(function(resp) { return resp.json() }) // Convert data to json
     .then(function(data) {
       drawWeather(data);
@@ -11,7 +11,7 @@ function weatherBalloon( cityID ) {
   }
   
   window.onload = function() {
-    weatherBalloon( 6167865 );
+    weatherBalloon( 588335 );
   }
 
   function drawWeather( d ) {
