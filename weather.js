@@ -24,26 +24,22 @@
 }
 */ 
 class Weather{
-  // konstruktor
+  // constructor
   constructor(c){
     this.city = c;
-    this.key = 'da63afd548b778fa72b1109e465edd7d';
+    this.key = '77f97b598769bf8861004c74e30ebbba';
   }
 
-  // data from api
+  // data from API
   async weatherData(){
-    const resp = await fetch('https://api.openweathermap.org/data/2.5/weather?q=' + this.city+ '&appid=' + this.key);
-    const data = await resp.json();  
+    const resp = await fetch('https://api.openweathermap.org/data/2.5/weather?q='+ this.city + '&appid=' + this.key);
+    const data = await resp.json();
     console.log(data);
     return data;
-    /* .then(function(resp) { return resp.json() }) // Convert data to json
-    .then(function(data) {
-      drawWeather(data);
-    })
-    .catch(function() {
-      // catch any errors
-    });
-  }*/ 
+  }
+
   // change city name
-}
+  changeCityName(name){
+    this.city = name;
+  }
 }
