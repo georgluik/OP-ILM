@@ -1,4 +1,4 @@
-function weatherBalloon( cityID ) {
+/* function weatherBalloon( cityID ) {
     var key = 'da63afd548b778fa72b1109e465edd7d';
     fetch('https://api.openweathermap.org/data/2.5/weather?id=' + cityID+ '&appid=' + key)    
     .then(function(resp) { return resp.json() }) // Convert data to json
@@ -21,4 +21,29 @@ function weatherBalloon( cityID ) {
 	document.getElementById('description').innerHTML = d.weather[0].description;
 	document.getElementById('temp').innerHTML = celcius + '&deg;';
 	document.getElementById('location').innerHTML = d.name;
+}
+*/ 
+class Weather{
+  // konstruktor
+  constructor(c){
+    this.city = c;
+    this.key = 'da63afd548b778fa72b1109e465edd7d';
+  }
+
+  // data from api
+  async weatherData(){
+    const resp = await fetch('https://api.openweathermap.org/data/2.5/weather?q=' + this.city+ '&appid=' + this.key);
+    const data = await resp.json();  
+    console.log(data);
+    return data;
+    /* .then(function(resp) { return resp.json() }) // Convert data to json
+    .then(function(data) {
+      drawWeather(data);
+    })
+    .catch(function() {
+      // catch any errors
+    });
+  }*/ 
+  // change city name
+}
 }
